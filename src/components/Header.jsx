@@ -1,5 +1,4 @@
 import logo from "../assets/img/logo.png";
-import imgDechire from "../assets/img/dechire.svg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Header = () => {
