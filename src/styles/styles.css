@@ -1,0 +1,383 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol,
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+header .header-container {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  padding: 10px 0;
+  width: 1280px;
+}
+header .header-container .header-logo {
+  cursor: pointer;
+  height: 40px;
+  pointer-events: none;
+}
+header .header-container .search-container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+header .header-container .search-container .search-input {
+  background-color: #f5f6f7;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  height: 37px;
+  outline: none;
+  padding-left: 40px;
+  width: 590px;
+}
+header .header-container .search-container svg {
+  width: 1em;
+  color: #bbb;
+  left: 7px;
+  position: absolute;
+  top: 12px;
+  display: inline-block;
+  font-size: inherit;
+  height: 1em;
+  vertical-align: -0.125em;
+}
+header .header-container .connexion .button-signup {
+  margin-right: 20px;
+}
+header .header-container .connexion .button-login-signup {
+  background-color: #fff;
+  color: #2cb1ba;
+}
+header .header-container button {
+  border: 1px solid #2cb1ba;
+  border-radius: 5px;
+  font-size: 12px;
+  height: 30px;
+  outline: none;
+  width: 115px;
+  cursor: pointer;
+}
+header .header-container .button-sold {
+  background-color: #2cb1ba;
+  color: #fff;
+}
+
+.home-hero-bg-img {
+  background-image: url("../assets/img/hero.jpg");
+  background-position: 50%;
+  background-size: cover;
+  height: 455px;
+  position: relative;
+  width: 100%;
+}
+.home-hero-bg-img img {
+  bottom: 0;
+  height: 80px;
+  pointer-events: none;
+  position: absolute;
+  right: 0;
+}
+.home-hero-bg-img div {
+  width: 1280px;
+  margin: 0 auto;
+}
+.home-hero-bg-img div .home-hero-ready {
+  background-color: #fff;
+  border-radius: 3px;
+  box-shadow: 0 0 2px hsla(0, 0%, 7%, 0.24);
+  display: flex;
+  flex-direction: column;
+  font-size: 34px;
+  height: 220px;
+  justify-content: center;
+  padding: 25px;
+  position: absolute;
+  top: 75px;
+  width: 360px;
+}
+.home-hero-bg-img div .home-hero-ready button {
+  background-color: #2baeb7;
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 16px;
+  height: 45px;
+  margin-top: 32px;
+  padding: 0 14px;
+  width: 187px;
+  outline: none;
+  cursor: pointer;
+}
+
+.home-card-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 30px auto auto;
+  width: 1280px;
+}
+.home-card-wrapper .card-container {
+  cursor: pointer;
+  padding: 0 6px 16px;
+  width: 235px;
+}
+.home-card-wrapper .card-container .card-avatar-username {
+  align-items: center;
+  display: flex;
+  padding: 10px;
+}
+.home-card-wrapper .card-container .card-avatar-username img {
+  border-radius: 50%;
+  height: 25px;
+  margin-right: 10px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 25px;
+  pointer-events: none;
+}
+.home-card-wrapper .card-container .card-avatar-username span {
+  color: #999;
+  font-size: 12px;
+}
+.home-card-wrapper .card-container div img {
+  height: 360px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 235px;
+}
+.home-card-wrapper .card-container div .card-price-size-brand {
+  display: flex;
+  flex-direction: column;
+  padding: 8px;
+}
+.home-card-wrapper .card-container div .card-price-size-brand span {
+  font-size: 14px;
+  color: black;
+}
+.home-card-wrapper .card-container div .card-price-size-brand span:not(:first-child) {
+  font-size: 12px;
+  color: #999;
+}
+
+.offer-body {
+  background-color: #ebedee;
+  height: calc(100vh - 60px);
+}
+.offer-body .offer-container {
+  display: flex;
+  gap: 30px;
+  justify-content: space-around;
+  margin: 0 auto;
+  padding: 30px;
+  width: 1280px;
+}
+.offer-body .offer-container .offer-pictures img {
+  height: 600px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.offer-body .offer-container .offer-infos {
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding: 40px;
+  width: 320px;
+}
+.offer-body .offer-container .offer-infos .offer-price {
+  color: #111;
+  font-size: 24px;
+  line-height: 32px;
+}
+.offer-body .offer-container .offer-infos .offer-list {
+  margin: 20px 0;
+}
+.offer-body .offer-container .offer-infos .offer-list li {
+  display: flex;
+  padding: 4px 0;
+}
+.offer-body .offer-container .offer-infos .offer-list li span {
+  flex: 1 1;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+.offer-body .offer-container .offer-infos .offer-list li span:nth-child(1) {
+  color: #999;
+}
+.offer-body .offer-container .offer-infos .offer-list li span:nth-child(2) {
+  color: #666;
+  font-weight: 700;
+}
+.offer-body .offer-container .offer-infos .divider {
+  background: hsla(0, 0%, 7%, 0.1);
+  display: block;
+  height: 1px;
+  width: 100%;
+}
+.offer-body .offer-container .offer-infos .offer-content .name {
+  font-weight: 700;
+}
+.offer-body .offer-container .offer-infos .offer-content .description {
+  color: #666;
+  margin: 20px 0;
+}
+.offer-body .offer-container .offer-infos .offer-content .offer-avatar-username {
+  align-items: center;
+  display: flex;
+}
+.offer-body .offer-container .offer-infos .offer-content .offer-avatar-username img {
+  border-radius: 50%;
+  height: 50px;
+  margin-right: 10px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 50px;
+  pointer-events: none;
+}
+.offer-body .offer-container .offer-infos button {
+  background: #09b1ba;
+  border: 1px solid #09b1ba;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 16px;
+  height: 36px;
+  line-height: 36px;
+  margin-top: 32px;
+  padding: 0 16px;
+  width: 100%;
+}/*# sourceMappingURL=styles.css.map */

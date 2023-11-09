@@ -1,0 +1,67 @@
+header {
+	.header-container {
+		align-items: center;
+		display: flex;
+		justify-content: space-between;
+		margin: 0 auto;
+		padding: 10px 0;
+		width: 1280px;
+
+		.header-logo {
+			cursor: pointer;
+			height: 40px;
+			pointer-events: none;
+		}
+
+		.search-container {
+			display: flex;
+			flex-direction: column;
+			position: relative;
+
+			.search-input {
+				background-color: #f5f6f7;
+				border: none;
+				border-radius: 5px;
+				font-size: 16px;
+				height: 37px;
+				outline: none;
+				padding-left: 40px;
+				width: 590px;
+			}
+
+			svg {
+				width: 1em;
+				color: #bbb;
+				left: 7px;
+				position: absolute;
+				top: 12px;
+				display: inline-block;
+				font-size: inherit;
+				height: 1em;
+				vertical-align: -0.125em;
+			}
+		}
+		.connexion {
+			.button-signup {
+				margin-right: 20px;
+			}
+			.button-login-signup {
+				background-color: #fff;
+				color: #2cb1ba;
+			}
+		}
+		button {
+			border: 1px solid #2cb1ba;
+			border-radius: 5px;
+			font-size: 12px;
+			height: 30px;
+			outline: none;
+			width: 115px;
+			cursor: pointer;
+		}
+		.button-sold {
+			background-color: #2cb1ba;
+			color: #fff;
+		}
+	}
+}

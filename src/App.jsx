@@ -1,4 +1,3 @@
-import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
@@ -36,8 +35,8 @@ function App() {
 				<Header />
 				<Routes>
 					<Route path="/" element={<Home data={data} />} />
-					<Route path="/offer/:id" element={<Offer />} />
-					<Route path="/contact" element={<h1>Contact</h1>} />
+					<Route path="/offer/:id" element={<Offer data={data} />} />
+					<Route path="*" element={<span>404</span>} />
 				</Routes>
 			</Router>
 		</>

@@ -6,7 +6,7 @@ const Header = () => {
 		<header>
 			<div className="header-container">
 				<div>
-					<img src={logo} alt="logo-vinted" />
+					<img className="header-logo" src={logo} alt="logo-vinted" />
 				</div>
 				<div className="search-container">
 					<input

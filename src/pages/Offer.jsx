@@ -1,7 +1,12 @@
-const Offer = () => {
+import OfferContainer from "../components/OfferContainer";
+import { useParams } from "react-router-dom";
+
+const Offer = ({ data }) => {
+	const { id } = useParams();
+
 	return (
-		<div>
-			<h1>Offer</h1>
+		<div className="offer-body">
+			<OfferContainer offers={data.offers} id={id} />
 		</div>
 	);
 };
