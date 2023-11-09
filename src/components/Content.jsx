@@ -8,7 +8,15 @@ const Content = ({ offers }) => {
 					<Link to={`/offer/${offer._id}`} key={offer._id}>
 						<div className="card-container">
 							<div className="card-avatar-username">
-								<img src={offer.owner.account.avatar.secure_url} alt="avatar" />
+								{offer.owner &&
+								offer.owner.account &&
+								offer.owner.account.avatar &&
+								offer.owner.account.avatar.secure_url ? (
+									<img
+										src={offer.owner.account.avatar.secure_url}
+										alt="avatar"
+									/>
+								) : null}
 								<span>{offer.owner.account.username}</span>
 							</div>
 							<div className="card-offer">

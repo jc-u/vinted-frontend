@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Navigate } from "react-router-dom";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import Cookies from "js-cookie";
@@ -7,6 +8,7 @@ const Login = () => {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	const [errorMessage, setErrorMessage] = useState("");
+	const [loggedIn, setLoggedIn] = useState(false);
 
 	const handleSubmit = async (event) => {
 		event.preventDefault();
@@ -20,6 +22,7 @@ const Login = () => {
 			);
 			if (response.data.token) {
 				Cookies.set("token", response.data.token, { expires: 7 });
+				setLoggedIn(true);
 			}
 		} catch (error) {
 			console.log(error.response.data.message);
@@ -27,7 +30,9 @@ const Login = () => {
 		}
 	};
 
-	return (
+	return loggedIn ? (
+		<Navigate to="/" />
+	) : (
 		<div className="signup-container">
 			<h2>Se connecter</h2>
 			<form onSubmit={handleSubmit}>

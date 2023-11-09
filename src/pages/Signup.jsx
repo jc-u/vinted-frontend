@@ -13,7 +13,7 @@ const Signup = () => {
 	const handleSubmit = async (event) => {
 		event.preventDefault();
 		try {
-			if (username && email && password) {
+			if (email && username && password) {
 				const response = await axios.post(
 					"https://lereacteur-vinted-api.herokuapp.com/user/signup",
 					{
@@ -24,16 +24,12 @@ const Signup = () => {
 					}
 				);
 				console.log(response.data);
-				if (response.data.token) {
-					Cookies.set("token", response.data.token, { expires: 7 });
-				} else {
-					alert("Une erreur est survenue, veuillez réessayer.");
-				}
+				Cookies.set("token", response.data.token, { expires: 7 });
 			} else {
-				setErrorMessage("Veuillez remplir tous les champs.");
+				setErrorMessage("Veuillez remplir tous les champs");
 			}
 		} catch (error) {
-			console.log(error.message);
+			console.log("erreur", error.response);
 		}
 	};
 
