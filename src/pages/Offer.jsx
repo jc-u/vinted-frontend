@@ -1,12 +1,34 @@
 import OfferContainer from "../components/OfferContainer";
 import { useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
-const Offer = ({ data }) => {
+const Offer = () => {
+	const [data, setData] = useState(null);
+	const [isLoading, setIsLoading] = useState(true);
+
 	const { id } = useParams();
 
-	return (
+	useEffect(() => {
+		const fetchData = async () => {
+			try {
+				const response = await axios.get(
+					`https://lereacteur-vinted-api.herokuapp.com/offer/${id}`
+				);
+				setData(response.data);
+				setIsLoading(false);
+			} catch (error) {
+				console.log(error.message);
+			}
+		};
+		fetchData();
+	}, [id]);
+
+	return isLoading ? (
+		<p>Loading...</p>
+	) : (
 		<div className="offer-body">
-			<OfferContainer offers={data.offers} id={id} />
+			<OfferContainer offers={data} id={id} />
 		</div>
 	);
 };

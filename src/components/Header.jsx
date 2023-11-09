@@ -1,7 +1,9 @@
 import logo from "../assets/img/logo.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useNavigate } from "react-router-dom";
 
 const Header = () => {
+	const navigate = useNavigate();
 	return (
 		<header>
 			<div className="header-container">
@@ -18,10 +20,14 @@ const Header = () => {
 					<div className="filter"></div>
 				</div>
 				<div className="connexion">
-					<button className="button-login-signup button-signup">
+					<button
+						onClick={() => navigate("/signup")}
+						className="button-login-signup button-signup">
 						S'inscrire
 					</button>
-					<button className="button-login-signup button-login">
+					<button
+						onClick={() => navigate("/login")}
+						className="button-login-signup button-login">
 						Se connecter
 					</button>
 				</div>
