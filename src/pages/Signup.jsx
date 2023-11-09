@@ -17,7 +17,7 @@ const Signup = () => {
 				const response = await axios.post(
 					"https://lereacteur-vinted-api.herokuapp.com/user/signup",
 					{
-						emaiil: email,
+						email: email,
 						username: username,
 						password: password,
 						newsletter: newsletter,
