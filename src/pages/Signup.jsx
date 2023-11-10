@@ -1,6 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
 
 const Signup = () => {
@@ -10,26 +10,32 @@ const Signup = () => {
 	const [newsletter, setNewsletter] = useState(false);
 	const [errorMessage, setErrorMessage] = useState("");
 
+	const navigate = useNavigate();
+
 	const handleSubmit = async (event) => {
 		event.preventDefault();
 		try {
-			if (email && username && password) {
-				const response = await axios.post(
-					"https://lereacteur-vinted-api.herokuapp.com/user/signup",
-					{
-						email: email,
-						username: username,
-						password: password,
-						newsletter: newsletter,
-					}
-				);
-				console.log(response.data);
-				Cookies.set("token", response.data.token, { expires: 7 });
-			} else {
-				setErrorMessage("Veuillez remplir tous les champs");
-			}
+			setErrorMessage("");
+			const response = await axios.post(
+				"https://lereacteur-vinted-api.herokuapp.com/user/signup",
+				{
+					email: email,
+					username: username,
+					password: password,
+					newsletter: newsletter,
+				}
+			);
+			console.log(response.data);
+			Cookies.set("token", response.data.token, { expires: 7 });
+			navigate("/");
 		} catch (error) {
 			console.log("erreur", error.response);
+
+			if (error.response.data.message === "Missing parameters") {
+				setErrorMessage("Veuillez remplir tous les champs");
+			} else if (error.response.status === 409) {
+				setErrorMessage("Cet email possède déjà un compte");
+			}
 		}
 	};
 
