@@ -2,6 +2,7 @@
    v2.0 | 20110126
    License: none (public domain)
 */
+@import url(https://db.onlinewebfonts.com/c/2173dceabf0710a335c0bca178efc162?family=Maison+Neue);
 html,
 body,
 div,
@@ -108,6 +109,7 @@ section {
 
 body {
   line-height: 1;
+  font-family: "Maison Neue";
 }
 
 ol,
@@ -177,11 +179,69 @@ header .header-container .search-container svg {
   height: 1em;
   vertical-align: -0.125em;
 }
+header .header-container .search-container .filter .filter-container {
+  margin-top: 25px;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+}
+header .header-container .search-container .filter .filter-container .filter-price {
+  margin-right: 10px;
+  width: 17%;
+}
+header .header-container .search-container .filter .filter-container .checkbox {
+  margin-right: 25px;
+}
+header .header-container .search-container .filter .filter-container .checkbox input {
+  display: none;
+  cursor: pointer;
+}
+header .header-container .search-container .filter .filter-container .checkbox .wrapper {
+  align-items: center;
+  background-color: #2cb1ba;
+  border-radius: 10px;
+  cursor: pointer;
+  display: inline-flex;
+  height: 20px;
+  outline: none;
+  width: 42px;
+}
+header .header-container .search-container .filter .filter-container .checkbox .wrapper .knob {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  background-color: #fff;
+  border: 1px solid #666;
+  border-radius: 100%;
+  font-weight: 700;
+  height: 16px;
+  left: 0;
+  position: relative;
+  transition: left 0.1s ease-in-out 0s;
+  width: 16px;
+}
+header .header-container .search-container .filter .filter-container .checkbox.checked .wrapper {
+  background-color: #2cb1ba;
+}
+header .header-container .search-container .filter .filter-container .checkbox.checked .wrapper .knob {
+  left: 23px;
+}
+header .header-container .search-container .filter .filter-container .price-range {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+header .header-container .search-container .filter .filter-container .price-range span {
+  margin-right: 10px;
+}
 header .header-container .connexion .button-signup {
   margin-right: 20px;
 }
 header .header-container .connexion .button-login-signup {
   background-color: #fff;
+  color: #2cb1ba;
+}
+header .header-container .connexion a {
   color: #2cb1ba;
 }
 header .header-container .button-logout {
@@ -270,6 +330,7 @@ header .header-container .button-sold {
   align-items: center;
   display: flex;
   padding: 10px;
+  height: 25px;
 }
 .home-card-wrapper .card-container .card-avatar-username img {
   border-radius: 50%;
@@ -390,4 +451,77 @@ header .header-container .button-sold {
   margin-top: 32px;
   padding: 0 16px;
   width: 100%;
+}
+
+.signup-container,
+.signup-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.signup-container {
+  justify-content: center;
+  margin-top: 30px;
+  text-align: center;
+}
+.signup-container h2 {
+  font-size: 24px;
+  font-weight: 400;
+  margin: 20px 0;
+}
+.signup-container .signup-form {
+  margin: auto;
+  width: 275px;
+}
+.signup-container .signup-form input {
+  border: none;
+  border-bottom: 1px solid #fcced3;
+  height: 35px;
+  margin-bottom: 20px;
+  outline: none;
+}
+.signup-container .signup-form .signup-login-error-message {
+  color: red;
+  font-size: 9px;
+}
+.signup-container .signup-form .checkbox-container {
+  margin-top: 20px;
+  padding: 10px;
+}
+.signup-container .signup-form .checkbox-container input {
+  margin-right: 10px;
+}
+.signup-container .signup-form .checkbox-container div {
+  display: flex;
+}
+.signup-container .signup-form .checkbox-container div input {
+  margin-right: 20px;
+  transform: scale(2);
+  cursor: pointer;
+}
+.signup-container .signup-form .checkbox-container div span {
+  color: #666;
+}
+.signup-container .signup-form .checkbox-container p {
+  color: #999;
+  font-size: 12px;
+  text-align: left;
+}
+.signup-container .signup-form button {
+  background-color: #2cb1ba;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 16px;
+  height: 45px;
+  margin-top: 20px;
+  outline: none;
+  width: 100%;
+  cursor: pointer;
+}
+.signup-container a {
+  color: #2cb1ba;
+  font-size: 12px;
+  margin-top: 20px;
+  text-decoration: none;
 }/*# sourceMappingURL=styles.css.map */

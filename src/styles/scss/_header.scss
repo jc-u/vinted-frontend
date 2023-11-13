@@ -40,6 +40,70 @@ header {
 				height: 1em;
 				vertical-align: -0.125em;
 			}
+
+			.filter {
+				.filter-container {
+					margin-top: 25px;
+					font-size: 12px;
+					display: flex;
+					align-items: center;
+
+					.filter-price {
+						margin-right: 10px;
+						width: 17%;
+					}
+					.checkbox {
+						margin-right: 25px;
+
+						input {
+							display: none;
+							cursor: pointer;
+						}
+
+						.wrapper {
+							align-items: center;
+							background-color: #2cb1ba;
+							border-radius: 10px;
+							cursor: pointer;
+							display: inline-flex;
+							height: 20px;
+							outline: none;
+							width: 42px;
+
+							.knob {
+								align-items: center;
+								display: flex;
+								justify-content: center;
+								background-color: #fff;
+								border: 1px solid #666;
+								border-radius: 100%;
+								font-weight: 700;
+								height: 16px;
+								left: 0;
+								position: relative;
+								transition: left 0.1s ease-in-out 0s;
+								width: 16px;
+							}
+						}
+					}
+					.checkbox.checked {
+						.wrapper {
+							background-color: #2cb1ba;
+							.knob {
+								left: 23px;
+							}
+						}
+					}
+					.price-range {
+						width: 100%;
+						display: flex;
+						align-items: center;
+						span {
+							margin-right: 10px;
+						}
+					}
+				}
+			}
 		}
 		.connexion {
 			.button-signup {
@@ -47,6 +111,10 @@ header {
 			}
 			.button-login-signup {
 				background-color: #fff;
+				color: #2cb1ba;
+			}
+
+			a {
 				color: #2cb1ba;
 			}
 		}

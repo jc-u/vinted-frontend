@@ -1,9 +1,8 @@
 import { useState } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
-import Cookies from "js-cookie";
 
-const Signup = () => {
+const Signup = ({ handleToken }) => {
 	const [email, setEmail] = useState("");
 	const [username, setUsername] = useState("");
 	const [password, setPassword] = useState("");
@@ -25,8 +24,10 @@ const Signup = () => {
 					newsletter: newsletter,
 				}
 			);
-			console.log(response.data);
-			Cookies.set("token", response.data.token, { expires: 7 });
+			//   Cookies.set("token", response.data.token, { expires: 15 });
+			// J'enregistre le token dans mon state et mes cookies
+			handleToken(response.data.token);
+			// Je navigue vers ma page /
 			navigate("/");
 		} catch (error) {
 			console.log("erreur", error.response);
@@ -42,7 +43,7 @@ const Signup = () => {
 	return (
 		<div className="signup-container">
 			<h2>S'inscrire</h2>
-			<form onSubmit={handleSubmit}>
+			<form className="signup-form" onSubmit={handleSubmit}>
 				<input
 					type="text"
 					placeholder="Nom d'utilisateur"
@@ -78,12 +79,12 @@ const Signup = () => {
 								setNewsletter(event.target.value);
 							}}
 						/>
+						<p>
+							En m'inscrivant je confirme avoir lu et accepté les Termes &
+							Conditions et Politique de Confidentialité de Vinted. Je confirme
+							avoir au moins 18 ans.
+						</p>
 					</div>
-					<p>
-						En m'inscrivant je confirme avoir lu et accepté les Termes &
-						Conditions et Politique de Confidentialité de Vinted. Je confirme
-						avoir au moins 18 ans.
-					</p>
 				</div>
 				<button type="submit">S'inscrire</button>
 			</form>
