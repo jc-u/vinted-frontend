@@ -5,7 +5,7 @@ header {
 		justify-content: space-between;
 		margin: 0 auto;
 		padding: 10px 0;
-		width: 1280px;
+		max-width: 1280px;
 
 		.header-logo {
 			cursor: pointer;
@@ -141,6 +141,103 @@ header {
 		.button-sold {
 			background-color: #2cb1ba;
 			color: #fff;
+		}
+	}
+}
+
+@media (max-width: 1280px) {
+	header {
+		position: relative;
+		.header-container {
+			a {
+				margin-left: 10px;
+			}
+			.search-container {
+				position: absolute;
+				bottom: -60%;
+				z-index: 1;
+				width: 100%;
+
+				.search-input {
+					width: 96%;
+				}
+			}
+			.filter {
+				display: none;
+			}
+			.connexion {
+				display: none;
+			}
+			.button-logout {
+				display: none;
+			}
+			.button-sold {
+				display: none;
+			}
+			.burger-menu {
+				margin-right: 10px;
+				cursor: pointer;
+				display: flex;
+				flex-direction: column;
+				justify-content: space-between;
+				width: 30px;
+				height: 20px;
+				background: transparent;
+				border: none;
+				padding: 0;
+				box-sizing: border-box;
+
+				.bar {
+					width: 30px;
+					height: 4px;
+					background-color: #333;
+					transition: 0.3s;
+				}
+
+				&.open {
+					.bar:first-child {
+						transform: rotate(-45deg) translate(-5px, 6px);
+					}
+
+					.bar:nth-child(2) {
+						opacity: 0;
+					}
+
+					.bar:last-child {
+						transform: rotate(45deg) translate(-5px, -6px);
+					}
+				}
+			}
+
+			.container-mobile {
+				position: absolute;
+				top: 90%;
+				z-index: 2;
+				right: 0;
+				background-color: white;
+				height: 160px;
+				width: 160px;
+				.search-container {
+					display: flex;
+				}
+
+				.connexion {
+					display: flex;
+					flex-direction: column;
+
+					button {
+						margin: 10px 10px;
+					}
+				}
+				.button-logout {
+					display: block;
+					margin-right: 10px;
+				}
+				.button-sold {
+					display: block;
+					margin: 10px;
+				}
+			}
 		}
 	}
 }

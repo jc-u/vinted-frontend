@@ -5,7 +5,7 @@ const Content = ({ offers }) => {
 		<div className="home-card-wrapper">
 			{offers.map((offer) => {
 				return (
-					<Link to={`/offer/${offer._id}`} key={offer._id}>
+					<Link to={`/offers/${offer._id}`} key={offer._id}>
 						<div className="card-container">
 							<div className="card-avatar-username">
 								{offer.owner &&

@@ -1,7 +1,9 @@
 import logo from "../assets/img/logo.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Range } from "react-range";
+import { useState } from "react";
+import BurgerMenu from "./BurgerMenu";
 
 const Header = ({
 	token,
@@ -13,6 +15,15 @@ const Header = ({
 	priceRange,
 	setPriceRange,
 }) => {
+	const [isMenuOpen, setMenuOpen] = useState(false);
+	const toggleMenu = () => {
+		setMenuOpen(!isMenuOpen);
+	};
+
+	const location = useLocation();
+
+	const isHome = location.pathname === "/"; // Vérifie si la route est la page d'accueil
+
 	const handleCheckboxChange = () => {
 		setPriceFilter((prevPriceFilter) =>
 			prevPriceFilter === "asc" ? "desc" : "asc"
@@ -31,129 +42,131 @@ const Header = ({
 						<img className="header-logo" src={logo} alt="logo-vinted" />
 					</div>
 				</Link>
-				<div className="search-container">
-					<input
-						type="text"
-						className="search-input"
-						placeholder="Recherche des articles"
-						value={search}
-						onChange={(event) => {
-							setSearch(event.target.value);
-						}}
-					/>
-					<FontAwesomeIcon icon="magnifying-glass" />
-					<div className="filter">
-						<div className="filter-container">
-							<span className="filter-price">Trier par prix</span>
-							<span className="checkbox">
-								<label
-									className={`checkbox ${
-										priceFilter === "desc" ? "checked" : ""
-									}`}>
-									<input
-										type="checkbox"
-										name="price"
-										checked={priceFilter === "desc"}
-										onChange={handleCheckboxChange}
-									/>
-									<div className="wrapper">
-										<div className="knob">
-											<span>{priceFilter === "desc" ? "⇣" : "⇡"}</span>
+				{isHome && ( // Afficher la partie de filtre uniquement sur la page d'accueil
+					<div className="search-container">
+						<input
+							type="text"
+							className="search-input"
+							placeholder="Recherche des articles"
+							value={search}
+							onChange={(event) => {
+								setSearch(event.target.value);
+							}}
+						/>
+						<FontAwesomeIcon icon="magnifying-glass" />
+						<div className="filter">
+							<div className="filter-container">
+								<span className="filter-price">Trier par prix</span>
+								<span className="checkbox">
+									<label
+										className={`checkbox ${
+											priceFilter === "desc" ? "checked" : ""
+										}`}>
+										<input
+											type="checkbox"
+											name="price"
+											checked={priceFilter === "desc"}
+											onChange={handleCheckboxChange}
+										/>
+										<div className="wrapper">
+											<div className="knob">
+												<span>{priceFilter === "desc" ? "⇣" : "⇡"}</span>
+											</div>
 										</div>
-									</div>
-								</label>
-							</span>
+									</label>
+								</span>
 
-							<div className="price-range">
-								<span>Prix entre :</span>
-								<Range
-									step={1}
-									min={0}
-									max={500}
-									values={priceRange}
-									onChange={handleSliderChange}
-									renderTrack={({ props, children }) => (
-										<div
-											onMouseDown={props.onMouseDown}
-											onTouchStart={props.onTouchStart}
-											style={{
-												...props.style,
-												height: "36px",
-												display: "flex",
-												width: "50%",
-											}}>
+								<div className="price-range">
+									<span>Prix entre :</span>
+									<Range
+										step={1}
+										min={0}
+										max={500}
+										values={priceRange}
+										onChange={handleSliderChange}
+										renderTrack={({ props, children }) => (
 											<div
-												ref={props.ref}
+												onMouseDown={props.onMouseDown}
+												onTouchStart={props.onTouchStart}
 												style={{
-													height: "5px",
-													width: "100%",
-													borderRadius: "4px",
-													background: `linear-gradient(to right, rgb(204, 204, 204) 0%, rgb(204, 204, 204) ${
-														(priceRange[0] / 500) * 100
-													}%, rgb(44, 177, 186) ${
-														(priceRange[0] / 500) * 100
-													}%, rgb(44, 177, 186) ${
-														(priceRange[1] / 500) * 100
-													}%, rgb(204, 204, 204) ${
-														(priceRange[1] / 500) * 100
-													}%, rgb(204, 204, 204) 100%)`,
-													alignSelf: "center",
+													...props.style,
+													height: "36px",
+													display: "flex",
+													width: "50%",
 												}}>
-												{children}
+												<div
+													ref={props.ref}
+													style={{
+														height: "5px",
+														width: "100%",
+														borderRadius: "4px",
+														background: `linear-gradient(to right, rgb(204, 204, 204) 0%, rgb(204, 204, 204) ${
+															(priceRange[0] / 500) * 100
+														}%, rgb(44, 177, 186) ${
+															(priceRange[0] / 500) * 100
+														}%, rgb(44, 177, 186) ${
+															(priceRange[1] / 500) * 100
+														}%, rgb(204, 204, 204) ${
+															(priceRange[1] / 500) * 100
+														}%, rgb(204, 204, 204) 100%)`,
+														alignSelf: "center",
+													}}>
+													{children}
+												</div>
 											</div>
-										</div>
-									)}
-									renderThumb={({ props, value }) => (
-										<div
-											{...props}
-											style={{
-												...props.style,
-												position: "absolute",
-												zIndex: value === priceRange[0] ? 1 : 0,
-												cursor: "grab",
-												userSelect: "none",
-												touchAction: "none",
-												height: "15px",
-												width: "15px",
-												borderRadius: "50%",
-												backgroundColor: "rgb(44, 177, 186)",
-												outline: "none",
-												display: "flex",
-												justifyContent: "center",
-												alignItems: "center",
-												transform: `translate(${
-													value === priceRange[0] ? "-8.5px" : "307.5px"
-												}, -6px)`,
-												border: "1px solid white",
-											}}>
+										)}
+										renderThumb={({ props, value }) => (
 											<div
+												{...props}
 												style={{
-													height: "8px",
-													width: "8px",
-													backgroundColor: "#rgb(44, 177, 186)",
-													borderRadius: "50%",
-												}}
-											/>
-											<div
-												style={{
+													...props.style,
 													position: "absolute",
-													top: "-28px",
-													color: "rgb(255, 255, 255)",
-													fontSize: "12px",
-													fontFamily: "'Maison Neue'",
-													padding: "4px",
-													borderRadius: "4px",
+													zIndex: value === priceRange[0] ? 1 : 0,
+													cursor: "grab",
+													userSelect: "none",
+													touchAction: "none",
+													height: "15px",
+													width: "15px",
+													borderRadius: "50%",
 													backgroundColor: "rgb(44, 177, 186)",
+													outline: "none",
+													display: "flex",
+													justifyContent: "center",
+													alignItems: "center",
+													transform: `translate(${
+														value === priceRange[0] ? "-8.5px" : "307.5px"
+													}, -6px)`,
+													border: "1px solid white",
 												}}>
-												{value}
+												<div
+													style={{
+														height: "8px",
+														width: "8px",
+														backgroundColor: "#rgb(44, 177, 186)",
+														borderRadius: "50%",
+													}}
+												/>
+												<div
+													style={{
+														position: "absolute",
+														top: "-28px",
+														color: "rgb(255, 255, 255)",
+														fontSize: "12px",
+														fontFamily: "'Maison Neue'",
+														padding: "4px",
+														borderRadius: "4px",
+														backgroundColor: "rgb(44, 177, 186)",
+													}}>
+													{value}
+												</div>
 											</div>
-										</div>
-									)}
-								/>
+										)}
+									/>
+								</div>
 							</div>
 						</div>
 					</div>
-				</div>
+				)}
 				{token ? (
 					<button
 						className="button-logout"
@@ -175,6 +188,32 @@ const Header = ({
 					</>
 				)}
 				<button className="button-sold">Vends tes articles</button>
+				<BurgerMenu isOpen={isMenuOpen} toggleMenu={toggleMenu} />
+				{isMenuOpen && (
+					<div className="container-mobile">
+						{token ? (
+							<button
+								className="button-logout"
+								onClick={() => {
+									handleToken(null);
+								}}>
+								Déconnexion
+							</button>
+						) : (
+							<>
+								<div className="connexion">
+									<button className="button-login-signup button-signup">
+										<Link to="/signup">S'inscrire</Link>
+									</button>
+									<button className="button-login-signup button-login">
+										<Link to="/login">Se connecter</Link>
+									</button>
+								</div>
+							</>
+						)}
+						<button className="button-sold">Vends tes articles</button>
+					</div>
+				)}
 			</div>
 		</header>
 	);
