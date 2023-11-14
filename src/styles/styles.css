@@ -352,7 +352,7 @@ header .header-container .button-sold a {
   }
   header .header-container .container-mobile .button-logout {
     display: block;
-    margin-right: 10px;
+    margin: 10px;
   }
   header .header-container .container-mobile .button-sold {
     display: block;
@@ -396,7 +396,6 @@ header .header-container .button-sold a {
   background-color: #2baeb7;
   border: none;
   border-radius: 4px;
-  color: #fff;
   font-size: 16px;
   height: 45px;
   margin-top: 32px;
@@ -404,6 +403,9 @@ header .header-container .button-sold a {
   width: 187px;
   outline: none;
   cursor: pointer;
+}
+.home-hero-bg-img div .home-hero-ready button a {
+  color: #fff;
 }
 
 .home-card-wrapper {
@@ -805,4 +807,83 @@ header .header-container .button-sold a {
   border-radius: 4px;
   color: #fff;
   margin: 50px 0;
+}
+
+.payment-wrapper {
+  background: #ebedee;
+  height: calc(100vh - 59px);
+}
+.payment-wrapper .payment-container {
+  margin: 0 auto;
+  padding: 36px 20px;
+  width: 600px;
+}
+.payment-wrapper .payment-container .payment-card {
+  background-color: white;
+}
+.payment-wrapper .payment-container .payment-card .title {
+  color: #999;
+  display: block;
+  font-size: 14px;
+  line-height: 18px;
+  padding: 24px 24px 8px;
+}
+.payment-wrapper .payment-container .payment-card .content {
+  padding: 24px;
+  text-align: justify;
+}
+.payment-wrapper .payment-container .payment-card .content li {
+  align-items: center;
+  color: #666;
+  display: grid;
+  font-size: 16px;
+  grid: auto/1fr auto;
+  line-height: 22px;
+  padding: 4px 0;
+}
+.payment-wrapper .payment-container .payment-card .content .bold {
+  font-weight: 700;
+  color: #111;
+}
+.payment-wrapper .payment-container .payment-card .divider {
+  background: hsla(0, 0%, 7%, 0.1);
+  display: block;
+  height: 1px;
+  margin: 24px 0;
+  width: 100%;
+}
+.payment-wrapper .payment-container .payment-card .StripeElement {
+  background: #fff;
+  border: 0;
+  border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(50, 50, 93, 0.149), 0 1px 0 rgba(0, 0, 0, 0.02);
+  display: block;
+  font-family: Source Code Pro, monospace;
+  font-size: 1em;
+  margin: 10px 0 20px;
+  outline: 0;
+  padding: 10px 14px;
+}
+.payment-wrapper .payment-container .payment-card button {
+  background: #00c06d;
+  border: 1px solid;
+  border-color: #00c06d;
+  border-radius: 4px;
+  color: #fff;
+  display: block;
+  font-size: 16px;
+  height: 44px;
+  line-height: 22px;
+  margin-top: 8px;
+  padding: 0 14px;
+  width: 100%;
+}
+
+@media (max-width: 1280px) {
+  .payment-wrapper .payment-container {
+    width: 100%;
+  }
+  .payment-wrapper .payment-container .payment-card {
+    width: 88%;
+  }
 }/*# sourceMappingURL=styles.css.map */

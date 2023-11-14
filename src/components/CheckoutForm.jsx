@@ -7,6 +7,10 @@ const CheckoutForm = ({ title, price, id }) => {
 	const [isLoading, setIsLoading] = useState(false);
 	const [succeeded, setSucceeded] = useState(false);
 
+	const protectionFees = 0.59;
+	const fees = 1.18;
+	const total = price + protectionFees + fees;
+
 	// Va nous permettre de faire une requête à Stripe pour lui envoyer les codes
 	const stripe = useStripe();
 
@@ -32,10 +36,9 @@ const CheckoutForm = ({ title, price, id }) => {
 			const response = await axios.post(
 				"https://lereacteur-vinted-api.herokuapp.com/payment",
 				{
+					token: stripeToken,
+					title: title,
 					amount: price,
-					currency: "eur",
-					description: title,
-					source: stripeToken,
 				}
 			);
 			console.log(response.data);
@@ -53,16 +56,60 @@ const CheckoutForm = ({ title, price, id }) => {
 	};
 
 	return (
-		<form onSubmit={handleSubmit}>
-			<h1>Formulaire de paiement</h1>
-			<CardElement />
+		<div className="payment-wrapper">
+			<div className="payment-container">
+				<div className="payment-card summary">
+					<div className="title">Résumé de la commande</div>
+					<div className="content">
+						<ul>
+							<li>
+								Commande
+								<span>{price} €</span>
+							</li>
+							<li>
+								Frais de protection acheteurs
+								<span>{protectionFees} €</span>
+							</li>
+							<li>
+								Frais de port
+								<span>{fees} €</span>
+							</li>
+						</ul>
+					</div>
 
-			{succeeded ? (
-				<p>Paiement validé</p>
-			) : (
-				<input type="submit" value="Acheter" disabled={isLoading} />
-			)}
-		</form>
+					<div className="divider"></div>
+					<div className="content">
+						<ul>
+							<li className="bold">
+								Total
+								<span>{total} €</span>
+							</li>
+						</ul>
+					</div>
+				</div>
+
+				<div className="payment-card">
+					<div className="content">
+						Il ne vous reste plus qu'une étape pour vous offrir{" "}
+						<span className="bold">{title}</span>. Vous allez payer{" "}
+						<span className="bold">{total} €</span> (frais de protection et
+						frais de port inclus).
+						<div className="divider"></div>
+						<form onSubmit={handleSubmit}>
+							<CardElement />
+
+							{succeeded ? (
+								<p>Merci pour votre achat.</p>
+							) : (
+								<button type="submit" value="Acheter" disabled={isLoading}>
+									Pay
+								</button>
+							)}
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
 	);
 };
 

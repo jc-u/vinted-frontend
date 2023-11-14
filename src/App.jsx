@@ -58,6 +58,7 @@ function App() {
 							setPriceFilter={setPriceFilter}
 							priceRange={priceRange}
 							setPriceRange={setPriceRange}
+							token={token}
 						/>
 					}
 				/>

@@ -3,7 +3,7 @@ import axios from "axios";
 import Hero from "../components/Hero";
 import Content from "../components/Content";
 
-const Home = ({ search, priceFilter, priceRange }) => {
+const Home = ({ search, priceFilter, priceRange, token }) => {
 	const [data, setData] = useState({});
 	const [isLoading, setIsLoading] = useState(true);
 
@@ -62,7 +62,7 @@ const Home = ({ search, priceFilter, priceRange }) => {
 		<span>En cours de chargement...</span>
 	) : (
 		<>
-			<Hero />
+			<Hero token={token} />
 			<Content offers={data.offers} />
 		</>
 	);

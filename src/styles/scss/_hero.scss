@@ -36,7 +36,7 @@
 				background-color: #2baeb7;
 				border: none;
 				border-radius: 4px;
-				color: #fff;
+
 				font-size: 16px;
 				height: 45px;
 				margin-top: 32px;
@@ -44,6 +44,10 @@
 				width: 187px;
 				outline: none;
 				cursor: pointer;
+
+				a {
+					color: #fff;
+				}
 			}
 		}
 	}
