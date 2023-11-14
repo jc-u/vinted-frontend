@@ -32,7 +32,10 @@ const CheckoutForm = ({ title, price, id }) => {
 			const response = await axios.post(
 				"https://lereacteur-vinted-api.herokuapp.com/payment",
 				{
-					stripeToken: stripeToken,
+					amount: price,
+					currency: "eur",
+					description: title,
+					source: stripeToken,
 				}
 			);
 			console.log(response.data);
@@ -43,7 +46,7 @@ const CheckoutForm = ({ title, price, id }) => {
 				setIsLoading(false);
 			}
 
-			//   console.log(stripeToken);
+			console.log(stripeToken);
 		} catch (error) {
 			console.log(error);
 		}
