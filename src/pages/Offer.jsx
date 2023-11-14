@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-const Offer = () => {
+const Offer = ({ token }) => {
 	const [data, setData] = useState(null);
 	const [isLoading, setIsLoading] = useState(true);
 
@@ -28,7 +28,7 @@ const Offer = () => {
 		<p>Loading...</p>
 	) : (
 		<div className="offer-body">
-			<OfferContainer offers={data} id={id} />
+			<OfferContainer offers={data} id={id} token={token} />
 		</div>
 	);
 };

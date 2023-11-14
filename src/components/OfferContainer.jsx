@@ -1,6 +1,22 @@
-const OfferContainer = ({ offers, id }) => {
-	console.log(offers);
+import { useNavigate } from "react-router-dom";
+
+const OfferContainer = ({ offers, id, token }) => {
+	const navigate = useNavigate();
 	const offerId = offers._id === id ? offers : null;
+	console.log(offerId);
+	const handleBuyButtonClick = () => {
+		if (token) {
+			navigate("/payment", {
+				state: {
+					title: offerId.product_name,
+					price: offerId.product_price,
+					id: offerId.owner._id,
+				},
+			});
+		} else {
+			navigate("/login");
+		}
+	};
 	return (
 		<div className="offer-container">
 			<div className="offer-pictures">
@@ -38,7 +54,7 @@ const OfferContainer = ({ offers, id }) => {
 						<span>{offerId.owner.account.username}</span>
 					</div>
 				</div>
-				<button>Acheter</button>
+				<button onClick={handleBuyButtonClick}>Acheter</button>
 			</div>
 		</div>
 	);

@@ -6,6 +6,7 @@ import Header from "./components/Header";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import Publish from "./pages/Publish";
+import Payment from "./pages/Payment";
 import Cookies from "js-cookie";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
@@ -60,10 +61,12 @@ function App() {
 						/>
 					}
 				/>
-				<Route path="/offers/:id" element={<Offer />} />
+				<Route path="/offers/:id" element={<Offer token={token} />} />
 				<Route path="/login" element={<Login handleToken={handleToken} />} />
 				<Route path="/signup" element={<Signup handleToken={handleToken} />} />
 				<Route path="/publish" element={<Publish token={token} />} />
+				<Route path="/payment" element={<Payment token={token} />} />
+				<Route path="*" element={<h1>404</h1>} />
 			</Routes>
 		</Router>
 	);
