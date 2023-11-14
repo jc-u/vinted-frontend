@@ -8,7 +8,7 @@
 		justify-content: space-around;
 		margin: 0 auto;
 		padding: 30px;
-		width: 1280px;
+		max-width: 1280px;
 
 		.offer-pictures {
 			img {
@@ -89,6 +89,22 @@
 				margin-top: 32px;
 				padding: 0 16px;
 				width: 100%;
+			}
+		}
+	}
+}
+
+@media (max-width: 1280px) {
+	.offer-body {
+		.offer-container {
+			flex-direction: column;
+			.offer-pictures {
+				img {
+					height: 300px;
+				}
+			}
+			.offer-infos {
+				width: 250px;
 			}
 		}
 	}

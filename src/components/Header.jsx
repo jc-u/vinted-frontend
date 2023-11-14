@@ -187,7 +187,11 @@ const Header = ({
 						</div>
 					</>
 				)}
-				<button className="button-sold">Vends tes articles</button>
+
+				<button className="button-sold">
+					<Link to={token ? "/publish" : "/login"}>Vends tes articles</Link>
+				</button>
+
 				<BurgerMenu isOpen={isMenuOpen} toggleMenu={toggleMenu} />
 				{isMenuOpen && (
 					<div className="container-mobile">
@@ -211,7 +215,9 @@ const Header = ({
 								</div>
 							</>
 						)}
-						<button className="button-sold">Vends tes articles</button>
+						<button className="button-sold">
+							<Link to={token ? "/publish" : "/login"}>Vends tes articles</Link>
+						</button>
 					</div>
 				)}
 			</div>

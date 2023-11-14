@@ -140,6 +140,11 @@ a {
   text-decoration: none;
 }
 
+input,
+button {
+  outline: none;
+}
+
 header .header-container {
   align-items: center;
   display: flex;
@@ -265,6 +270,8 @@ header .header-container button {
 }
 header .header-container .button-sold {
   background-color: #2cb1ba;
+}
+header .header-container .button-sold a {
   color: #fff;
 }
 
@@ -471,7 +478,7 @@ header .header-container .button-sold {
   justify-content: space-around;
   margin: 0 auto;
   padding: 30px;
-  width: 1280px;
+  max-width: 1280px;
 }
 .offer-body .offer-container .offer-pictures img {
   height: 600px;
@@ -549,6 +556,17 @@ header .header-container .button-sold {
   width: 100%;
 }
 
+@media (max-width: 1280px) {
+  .offer-body .offer-container {
+    flex-direction: column;
+  }
+  .offer-body .offer-container .offer-pictures img {
+    height: 300px;
+  }
+  .offer-body .offer-container .offer-infos {
+    width: 250px;
+  }
+}
 .signup-container,
 .signup-form {
   display: flex;
@@ -620,4 +638,170 @@ header .header-container .button-sold {
   font-size: 12px;
   margin-top: 20px;
   text-decoration: none;
+}
+
+.publish-main {
+  background-color: #ebedee;
+}
+.publish-main .publish-container {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+.publish-main .publish-container h2 {
+  font-size: 24px;
+  padding-top: 40px;
+}
+.publish-main .publish-container .file-select {
+  background-color: #fff;
+  box-shadow: 0 0 2px gray;
+  margin: 20px 0;
+  padding: 24px;
+}
+.publish-main .publish-container .file-select .dashed-preview-without {
+  align-items: center;
+  border: 1px dashed #ebedee;
+  border-radius: 3px;
+  display: flex;
+  height: 200px;
+  justify-content: center;
+}
+.publish-main .publish-container .file-select .dashed-preview-without img {
+  height: 90% !important;
+  margin: 0 10px;
+}
+.publish-main .publish-container .file-select .dashed-preview-without .remove-img-button {
+  background-color: #fff;
+  border-radius: 4px;
+  bottom: 70px;
+  color: #000;
+  cursor: pointer;
+  font-weight: 700;
+  height: 25px;
+  line-height: 25px;
+  position: relative;
+  right: 60px;
+  text-align: center;
+  width: 30px;
+}
+.publish-main .publish-container .file-select .dashed-preview-without .input-design-default {
+  align-items: center;
+  border: 1px solid #0ab1ba;
+  border-radius: 4px;
+  display: flex;
+  height: 45px;
+  justify-content: center;
+  width: 200px;
+}
+.publish-main .publish-container .file-select .dashed-preview-without .input-design-default .label-file {
+  color: #0ab1ba;
+  cursor: pointer;
+  font-weight: 700;
+}
+.publish-main .publish-container .file-select .dashed-preview-without .input-design-default .label-file span {
+  margin: 0 10px;
+  vertical-align: middle;
+}
+.publish-main .publish-container .file-select .dashed-preview-without .input-design-default .label-file .input-sign {
+  font-size: 40px;
+}
+.publish-main .publish-container .file-select .dashed-preview-without .input-design-default .input-file {
+  display: none;
+}
+.publish-main .publish-container .text-input-section {
+  background-color: #fff;
+  box-shadow: 0 0 2px gray;
+  margin: 20px 0;
+}
+.publish-main .publish-container .text-input-section .text-input {
+  display: flex;
+  justify-content: space-between;
+  padding: 24px;
+}
+.publish-main .publish-container .text-input-section .text-input:not(:last-child) {
+  border-bottom: 1px solid #ebedee;
+  height: 25px;
+}
+.publish-main .publish-container .text-input-section .text-input h4 {
+  font-weight: 400;
+  margin: 0;
+  vertical-align: initial;
+}
+.publish-main .publish-container .text-input-section .text-input input {
+  border: none;
+  border-bottom: 1px solid #ebedee;
+  color: #000;
+  font-family: Maison Neue;
+  font-size: 16px;
+  width: 50%;
+}
+.publish-main .publish-container .text-input-section .text-input textarea {
+  border: none;
+  border-bottom: 1px solid #ebedee;
+  color: #000;
+  font-family: Maison Neue;
+  font-size: 16px;
+  outline: none;
+  resize: none;
+  width: 50%;
+}
+.publish-main .publish-container .text-input-section .checkbox-section {
+  width: 50%;
+}
+.publish-main .publish-container .text-input-section .checkbox-section input {
+  border: none;
+  border-bottom: 1px solid #ebedee;
+  color: #000;
+  font-family: Maison Neue;
+  font-size: 16px;
+  margin-bottom: 40px;
+}
+.publish-main .publish-container .text-input-section .checkbox-section input[type=number]::-webkit-inner-spin-button,
+.publish-main .publish-container .text-input-section .checkbox-section input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.publish-main .publish-container .text-input-section .checkbox-section .checkbox-input label {
+  color: #666;
+}
+.publish-main .publish-container .text-input-section .checkbox-section .checkbox-input .checkbox-design {
+  border: 1px solid #000;
+  border-radius: 3px;
+  margin: 0 15px 0 0;
+  padding: 2px 11px;
+}
+.publish-main .publish-container .text-input-section .checkbox-section .checkbox-input .checkbox-design-checked {
+  background-color: #0ab1ba;
+  border-radius: 3px;
+  margin: 0 15px 0 0;
+  padding: 3px 6px;
+}
+.publish-main .publish-container .text-input-section .checkbox-section .checkbox-input input {
+  display: none;
+  cursor: pointer;
+}
+.publish-main .publish-container .text-input-section .checkbox-section .checkbox-input .svg-inline--fa {
+  overflow: visible;
+  display: inline-block;
+  height: 1em;
+  vertical-align: -0.125em;
+}
+.publish-main .publish-container .text-input-section .checkbox-section .checkbox-input .svg-inline--fa .fa-w-16 {
+  width: 1em;
+}
+.publish-main .publish-container .text-input-section .checkbox-section .checkbox-input .fa-xs {
+  font-size: 0.75em;
+}
+.publish-main .publish-container .form-button-div {
+  display: flex;
+  justify-content: flex-end;
+}
+.publish-main .publish-container .form-button-div .form-validation {
+  font: inherit;
+  outline: inherit;
+  padding: 12px;
+  background-color: #0ab1ba;
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+  margin: 50px 0;
 }/*# sourceMappingURL=styles.css.map */

@@ -29,10 +29,12 @@ const OfferContainer = ({ offers, id }) => {
 					<p className="name">{offerId.product_name}</p>
 					<p className="description">{offerId.product_description}</p>
 					<div className="offer-avatar-username">
-						<img
-							src={offerId.owner.account.avatar.secure_url}
-							alt={offerId.product_name}
-						/>
+						{offerId.owner &&
+						offerId.owner.account &&
+						offerId.owner.account.avatar &&
+						offerId.owner.account.avatar.secure_url ? (
+							<img src={offerId.owner.account.avatar.secure_url} alt="avatar" />
+						) : null}
 						<span>{offerId.owner.account.username}</span>
 					</div>
 				</div>

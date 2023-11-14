@@ -5,6 +5,7 @@ import Offer from "./pages/Offer";
 import Header from "./components/Header";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
+import Publish from "./pages/Publish";
 import Cookies from "js-cookie";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
@@ -62,6 +63,7 @@ function App() {
 				<Route path="/offers/:id" element={<Offer />} />
 				<Route path="/login" element={<Login handleToken={handleToken} />} />
 				<Route path="/signup" element={<Signup handleToken={handleToken} />} />
+				<Route path="/publish" element={<Publish token={token} />} />
 			</Routes>
 		</Router>
 	);

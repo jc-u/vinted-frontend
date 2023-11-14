@@ -140,7 +140,10 @@ header {
 		}
 		.button-sold {
 			background-color: #2cb1ba;
-			color: #fff;
+
+			a {
+				color: #fff;
+			}
 		}
 	}
 }
