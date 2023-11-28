@@ -10,7 +10,7 @@ const Home = ({ search, priceFilter, priceRange, token }) => {
 	useEffect(() => {
 		const fetchData = async () => {
 			try {
-				let apiUrl = "https://lereacteur-vinted-api.herokuapp.com/offers";
+				let apiUrl = "https://site--vinted--kxz75bb7sdlb.code.run/offers";
 
 				// Construire les paramètres de la requête en fonction des filtres
 				let queryParams = [];

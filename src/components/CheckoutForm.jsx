@@ -3,10 +3,9 @@ import axios from "axios";
 import { useState } from "react";
 
 const CheckoutForm = ({ title, price, id }) => {
-	console.log(title, price, id);
 	const [isLoading, setIsLoading] = useState(false);
 	const [succeeded, setSucceeded] = useState(false);
-
+	console.log(id);
 	const protectionFees = 0.59;
 	const fees = 1.18;
 	const total = price + protectionFees + fees;
@@ -34,11 +33,11 @@ const CheckoutForm = ({ title, price, id }) => {
 			//   Je fais une requête à mon back et je lui envoie mon stripeToken
 
 			const response = await axios.post(
-				"https://lereacteur-vinted-api.herokuapp.com/payment",
+				"https://site--vinted--kxz75bb7sdlb.code.run/payment",
 				{
-					token: stripeToken,
-					title: title,
 					amount: price,
+					title: title,
+					token: stripeToken,
 				}
 			);
 			console.log(response.data);
@@ -82,7 +81,7 @@ const CheckoutForm = ({ title, price, id }) => {
 						<ul>
 							<li className="bold">
 								Total
-								<span>{total} €</span>
+								<span>{Number(total).toFixed(2)} €</span>
 							</li>
 						</ul>
 					</div>
@@ -92,8 +91,8 @@ const CheckoutForm = ({ title, price, id }) => {
 					<div className="content">
 						Il ne vous reste plus qu'une étape pour vous offrir{" "}
 						<span className="bold">{title}</span>. Vous allez payer{" "}
-						<span className="bold">{total} €</span> (frais de protection et
-						frais de port inclus).
+						<span className="bold">{Number(total).toFixed(2)} €</span> (frais de
+						protection et frais de port inclus).
 						<div className="divider"></div>
 						<form onSubmit={handleSubmit}>
 							<CardElement />

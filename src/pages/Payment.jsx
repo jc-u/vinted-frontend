@@ -14,7 +14,6 @@ const Payment = ({ token }) => {
 
 	// Access the state object from location
 	const { title, price, id } = location.state;
-	console.log(title, price, id);
 
 	return token ? (
 		// Elements doit englober toute ma logique de paiement, je lui donne stripePromise en props pour lui montrer que je suis connecté à mon compte Stripe
